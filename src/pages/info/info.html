@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-navbar>
+      <ion-title>{{ 'INFO_RISTO' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div #map id="map">
+        <p text-center>{{'ERROR_CONN'|translate}}</p>
+  </div>
+  <div text-center>
+      <h6>Via della Crocetta, 67100 L'Aquila </h6>
+  </div>
+  <hr>
+  <div text-center>
+      <p>{{'INFO_PRENOT'|translate}}</p>
+      <button ion-button full large icon-left (click)="call()">
+          <ion-icon name="call" ></ion-icon>
+          0862 080100
+      </button>
+  </div>
+
+  <ion-grid text-center padding>
+    <ion-row class="table">
+        <ion-col col-4>
+        </ion-col>
+        <ion-col col-4>
+            <p class="bold">{{ 'PRANZO' | translate }}</p>
+        </ion-col>
+        <ion-col col-4>
+            <p class="bold">{{ 'CENA' | translate }}</p>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col col-4 text-left>
+            <p class="bold">{{ 'LUNEDI' | translate }}</p>
+        </ion-col>
+        <ion-col col-4>
+            <p>{{ 'CHIUSO' | translate }}</p>
+        </ion-col>
+        <ion-col col-4>
+            <p>{{ 'CHIUSO' | translate }}</p>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col col-4 text-left>
+            <p class="bold">{{ 'MARTEDI' | translate }}</p>
+        </ion-col>
+        <ion-col col-4>
+            <p>12.30/15.30</p>
+        </ion-col>
+        <ion-col col-4>
+            <p> 19.30/23.30</p>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col col-4 text-left>
+            <p class="bold">{{ 'MERCOLEDI' | translate }}</p>
+        </ion-col>
+        <ion-col col-4>
+            <p> 12.30/15.30</p>
+        </ion-col>
+        <ion-col col-4>
+            <p>19.30/23.30</p>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col col-4 text-left>
+            <p class="bold">{{ 'GIOVEDI' | translate }}</p>
+        </ion-col>
+        <ion-col col-4>
+            <p>{{ 'CHIUSO' | translate }}</p>
+        </ion-col>
+        <ion-col col-4>
+            <p>19.30/23.30</p>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col col-4 text-left>
+            <p class="bold">{{ 'VENERDI' | translate }}</p>
+        </ion-col>
+        <ion-col col-4>
+            <p>12.30/15.30</p>
+        </ion-col>
+        <ion-col col-4>
+            <p>19.30/23.30</p>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col col-4 text-left>
+            <p class="bold">{{ 'SABATO' | translate }}</p>
+        </ion-col>
+        <ion-col col-4>
+            <p>12.30/15.30</p>
+        </ion-col>
+        <ion-col col-4>
+            <p>19.30/23.30</p>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col col-4 text-left>
+            <p class="bold">{{ 'DOMENICA' | translate }}</p>
+        </ion-col>
+        <ion-col col-4>
+            <p>12.30/15.30</p>
+        </ion-col>
+        <ion-col col-4>
+            <p>19.30/23.30</p>
+        </ion-col>
+    </ion-row>
+</ion-grid>
+
+</ion-content>

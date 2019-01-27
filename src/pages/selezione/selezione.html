@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'SELEZIONE' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card *ngFor="let item of menu;">
+    <img src="{{item.immagini[0].percorso}}"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{item.nome}}
+      </ion-card-title>
+      <p>
+        {{item.descrizione}}
+      </p>
+    </ion-card-content>
+    <ion-item>
+      <ion-badge item-end>{{item.prezzo}} €</ion-badge>
+    </ion-item>
+  </ion-card>
+
+</ion-content>

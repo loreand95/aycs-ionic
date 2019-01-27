@@ -1,0 +1,11 @@
+<ion-content >
+  <ion-card>
+      <img width="100%" height="100%" src="assets/imgs/home.jpg"/>
+  </ion-card>
+  <div padding> 
+      <button ion-button block color="dark" class="btn" outline (click)="openMenu()">{{ 'MENU' | translate }}</button>
+      <button ion-button block color="dark" class="btn" outline (click)="openPages('SelezionePage')">{{ 'SELEZIONE' | translate }}</button>
+      <button ion-button block color="dark" class="btn" outline (click)="openPages('InfoPage')">{{ 'INFO_RISTO' | translate }}</button>
+      <button ion-button block color="dark" class="btn" outline (click)="openPages('ProfiloPage')">{{ 'PROFILO_U' | translate }}</button>
+  </div>
+</ion-content>

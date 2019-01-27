@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ 'SIGN_PAGE' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding no-bounce>
+  <form #loginForm="ngForm">
+    <ion-list inset>
+      <ion-item>
+        <ion-label stacked color="primary">{{ 'NOME' | translate }}</ion-label>
+        <ion-input [(ngModel)]="account.nome" name="name" type="text" #nome="ngModel" [maxlength]="16" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked color="primary">{{ 'COGNOME' | translate }}</ion-label>
+        <ion-input [(ngModel)]="account.cognome" name="surname" type="text" #cognome="ngModel" [maxlength]="16" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked color="primary">{{ 'EMAIL' | translate }}</ion-label>
+        <ion-input [(ngModel)]="account.email" name="email" type="email" #email="ngModel" [maxlength]="16" required></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label stacked color="primary">{{ 'USERNAME' | translate }}</ion-label>
+          <ion-input [(ngModel)]="account.username" name="username" type="text" #username="ngModel" [maxlength]="16" required></ion-input>
+        </ion-item>
+      <ion-item>
+        <ion-label stacked color="primary">{{ 'PASSWORD' | translate }}</ion-label>
+        <ion-input [(ngModel)]="account.password" name="password" type="password" #password="ngModel" [maxlength]="255" required>
+        </ion-input>
+      </ion-item>
+    </ion-list>
+    <div text-center>
+        <button ion-button full="false" [disabled]="!loginForm.form.valid" color=success  (click)="onSign(loginForm)" type="submit" block>{{ 'SIGN' | translate }}</button>
+  </div>
+  </form>
+</ion-content>

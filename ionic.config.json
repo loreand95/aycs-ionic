@@ -1,0 +1,13 @@
+{
+  "name": "AYCS",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "https://aycserver.herokuapp.com/aycs/api"
+    }
+  ]
+}

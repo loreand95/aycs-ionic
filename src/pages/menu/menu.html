@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ 'MENU' | translate }}</ion-title>
+  </ion-navbar>
+  <!-- SWITCH HEAD-->
+  <div padding-top>
+    <ion-segment [(ngModel)]="menu">
+      <ion-segment-button value="piattiTipici">
+        {{ 'PIATTI_TIPICI' | translate}}
+      </ion-segment-button>
+      <ion-segment-button value="sushi">
+        {{ 'SUSHI' | translate}}
+      </ion-segment-button>
+      <ion-segment-button value="bevande">
+        {{ 'BEVANDE' | translate}}
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+</ion-header>
+
+<ion-content>
+  
+
+  <!-- SWITCH BODY-->
+  <div [ngSwitch]="menu">
+    <!-- SEZIONE PIATTI TIPICI  -->
+    <ion-list *ngSwitchCase="'piattiTipici'">
+      <!-- CATEGORIE -->
+      <div *ngFor="let categoria of piattiTipici;">
+        <button ion-item (click)="toggleSection(categoria)" detail-none [ngClass]="{'section-active': categoria.open, 'section': !categoria.open}">
+          <ion-icon item-end name="ios-arrow-forward-outline" *ngIf="!categoria.open"></ion-icon>
+          <ion-icon item-end name="ios-arrow-down-outline" *ngIf="categoria.open"></ion-icon>
+          {{categoria.nome}}
+        </button>
+        <!-- CATEGORIA -->
+        <ion-list *ngIf="categoria.open">
+          <ion-item ion-item *ngFor="let prodotto of categoria.prodotti;">
+            <!-- PRODOTTO  -->
+            <ion-avatar item-start (click)="prodottoPage(prodotto)">
+              <img *ngIf="prodotto.preview[0]" src="{{prodotto.preview[0].percorso}}">
+            </ion-avatar>
+            <h2 (click)="prodottoPage(prodotto)">{{prodotto.nome}}</h2>
+            <ion-icon *ngIf="isPreferito(prodotto); else notPreferito" item-end name="heart" class="heart" (click)="removePreferito(prodotto);"></ion-icon>
+            <ng-template #notPreferito><ion-icon item-end name="heart-outline"  class="heart" (click)="addPreferito(prodotto);"></ion-icon></ng-template>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-list>
+
+    <!-- SEZIONE SUSHI  -->
+    <ion-list *ngSwitchCase="'sushi'">
+      <!-- CATEGORIE -->
+      <div *ngFor="let categoria of sushi;">
+        <button ion-item (click)="toggleSection(categoria)" detail-none [ngClass]="{'section-active': categoria.open, 'section': !categoria.open}">
+          <ion-icon item-end name="ios-arrow-forward-outline" *ngIf="!categoria.open"></ion-icon>
+          <ion-icon item-end name="ios-arrow-down-outline" *ngIf="categoria.open"></ion-icon>
+          {{categoria.nome}}
+        </button>
+        <!-- CATEGORIA -->
+        <ion-list *ngIf="categoria.open">
+          <ion-item ion-item *ngFor="let prodotto of categoria.prodotti;">
+            <!-- PRODOTTO  -->
+            <ion-avatar item-start (click)="prodottoPage(prodotto)">
+                <img *ngIf="prodotto.preview[0]" src="{{prodotto.preview[0].percorso}}">
+            </ion-avatar>
+            <h2 (click)="prodottoPage(prodotto)">{{prodotto.nome}}</h2>
+            <ion-icon *ngIf="isPreferito(prodotto); else notPreferito" item-end name="heart" class="heart"  (click)="removePreferito(prodotto);"></ion-icon>
+            <ng-template #notPreferito><ion-icon item-end name="heart-outline" class="heart" (click)="addPreferito(prodotto);"></ion-icon></ng-template>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-list>
+
+    <!-- SEZIONE BEVANDE  -->
+    <ion-list *ngSwitchCase="'bevande'">
+      <!-- CATEGORIE -->
+      <div *ngFor="let categoria of bevande;">
+        <button ion-item (click)="toggleSection(categoria)" detail-none [ngClass]="{'section-active': categoria.open, 'section': !categoria.open}">
+          <ion-icon item-end name="ios-arrow-forward-outline"  *ngIf="!categoria.open"></ion-icon>
+          <ion-icon item-end name="ios-arrow-down-outline" *ngIf="categoria.open"></ion-icon>
+          {{categoria.nome}}
+        </button>
+        <!-- CATEGORIA -->
+        <ion-list *ngIf="categoria.open">
+          <ion-item ion-item *ngFor="let prodotto of categoria.prodotti;">
+            <!-- PRODOTTO  -->
+            <ion-avatar item-start (click)="prodottoPage(prodotto)">
+              <img *ngIf="prodotto.preview[0]" src="{{prodotto.preview[0].percorso}}">
+            </ion-avatar>
+            <h2 (click)="prodottoPage(prodotto)">{{prodotto.nome}}</h2>
+            <ion-icon *ngIf="isPreferito(prodotto); else notPreferito" item-end name="heart" class="heart" (click)="removePreferito(prodotto);"></ion-icon>
+            <ng-template #notPreferito><ion-icon item-end name="heart-outline"  class="heart" (click)="addPreferito(prodotto);"></ion-icon></ng-template>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-list>
+    
+  </div>
+</ion-content>

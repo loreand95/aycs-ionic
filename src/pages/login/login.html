@@ -1,0 +1,24 @@
+<ion-content padding>
+	<div class="logo">
+		<img src="assets/imgs/sushi.png" alt="AYCS logo">
+	</div>
+
+	<form #loginForm="ngForm" padding>
+		<ion-list no-lines inset padding-bottom>
+			<ion-item>
+				<ion-input name="username"  #username="ngModel" [(ngModel)]="account.username" id="username" type="text" placeholder="{{ 'USERNAME' | translate }}" required ></ion-input>
+			</ion-item>
+			<ion-item >
+				<ion-input name="password" [(ngModel)]="account.password"  type="password" #password="ngModel" placeholder="{{ 'PASSWORD' | translate }}" required></ion-input>	
+			</ion-item >
+		</ion-list>
+		<div text-center padding>
+			<button ion-button (click)="onLogin(loginForm)" type="submit" [disabled]="!loginForm.form.valid" block>{{ 'LOGIN_BUTTON' | translate }}</button>
+		</div>
+		
+		<div text-center padding-top>
+					<p style="color:grey" text-center>Non sei registrato?</p>
+					<button ion-button full="false"  color=success  (click)="signIn()" type="submit" block>{{ 'SIGN' | translate }}</button>
+		</div>
+	</form>
+</ion-content>

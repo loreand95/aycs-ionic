@@ -1,0 +1,58 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title *ngIf="prodotto">
+            {{prodotto.nome}}
+        </ion-title>
+
+        <ion-buttons end *ngIf="preferito; else notPreferito" (click)="removePreferito()">
+            <button ion-button padding icon-only>
+                <ion-icon name="heart"></ion-icon>
+            </button>
+        </ion-buttons>
+
+        <ng-template #notPreferito>
+            <ion-buttons end (click)="addPreferito()">
+                <button ion-button padding icon-only>
+                    <ion-icon name="heart-outline"></ion-icon>
+                </button>
+            </ion-buttons>
+        </ng-template>
+
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div *ngIf="prodotto">
+
+        <ion-scroll scrollX="true" style="white-space: nowrap; height: 200px; ">
+
+            <img *ngFor="let immagine of prodotto.immagini" class="imgs" src="{{immagine.percorso}}" style="border-right:3px solid white; height: 200px"
+            />
+
+        </ion-scroll>
+
+
+
+        <ion-list-header class="no-padding">
+            Descrizione:
+        </ion-list-header>
+
+        <ion-card-content>{{prodotto.descrizione}}</ion-card-content>
+
+        <ion-list>
+            <ion-list-header>
+                Ingredienti:
+            </ion-list-header>
+
+            <ion-item *ngFor="let ingrediente of prodotto.ingredienti">
+                <ion-icon name="ios-checkmark-circle-outline" item-start></ion-icon>
+                <ion-label>{{ ingrediente.nome }}</ion-label>
+            </ion-item>
+        </ion-list>
+
+
+    </div>
+
+</ion-content>
